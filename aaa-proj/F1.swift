@@ -18,19 +18,26 @@ class Pet {
         self.age = age;
         self.species = species;
     }
+    
+    func getAge() -> Int {
+        return self.age;
+    }
+    
     func speak() -> String{
-        if (self.species == "Dog"){
-            return "Woof";
-        }
-        if (self.species == "Cat"){
-            return "Meow";
-        }
-        if (self.species == "Hampster"){
-            return "Squeek";
-        }
-        if (self.species == "Fish"){
-            return "Blub";
+        var sounds = [
+            "CAT" : "Meow",
+            "DOG" : "Woof",
+            "MOUSE" : "Squeek",
+            "FISH" : "Blub",
+            "HAMPSTER" : "Snuffle"
+        ]
+        if sounds[self.species.uppercased()] != nil {
+            return sounds[self.species.uppercased()]!;
         }
         return "";
+    }
+    func incrementAge(increment : Int) -> Int {
+        self.age += increment;
+        return self.age
     }
 }
